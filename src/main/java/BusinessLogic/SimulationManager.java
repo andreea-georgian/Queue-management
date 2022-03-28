@@ -98,6 +98,9 @@ public class SimulationManager implements Runnable{
                 scheduler.dispatchTask(generatedTasks.get(0));
                 generatedTasks.remove(0);
                 scheduler.calculateWaitingTime();
+                for (Server s : scheduler.getServers())
+                    System.out.println(s.getWaitingTime());
+                System.out.println();
             }
             try {
                 displayWaitingTasks(currentTime);

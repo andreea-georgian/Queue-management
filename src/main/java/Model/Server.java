@@ -15,6 +15,9 @@ public class Server implements Runnable{
 
     public void addTask(Task newTask) {
         tasks.add(newTask);
+        waitingTime = 0;
+        for (Task t : tasks)
+            waitingTime += t.getServiceTime();
         waitingPeriod.add(waitingTime);
     }
 

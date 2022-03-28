@@ -18,6 +18,7 @@ public class Controller {
 
     class addStartListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
+
             int numberOfClients = -1, numberOfServers = -1, timeLimit = -1, minArrivalTime = -1, maxArrivalTime = -1, minProcessingTime = -1, maxProcessingTime = -1;
             SelectionPolicy sp;
             try {
