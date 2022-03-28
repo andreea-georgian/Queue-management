@@ -1,0 +1,91 @@
+Timp 0
+Clienti in asteptare: 
+(1, 1, 1)
+(5, 1, 1)
+(10, 2, 1)
+(7, 3, 3)
+(3, 4, 2)
+(4, 4, 1)
+(6, 4, 3)
+(9, 4, 1)
+(2, 5, 2)
+(8, 5, 3)
+Coada 0: 
+Coada 1: 
+
+Timp 1
+Clienti in asteptare: 
+(10, 2, 1)
+(7, 3, 3)
+(3, 4, 2)
+(4, 4, 1)
+(6, 4, 3)
+(9, 4, 1)
+(2, 5, 2)
+(8, 5, 3)
+Coada 0: (1, 1, 1); 
+Coada 1: (5, 1, 1); 
+
+Timp 2
+Clienti in asteptare: 
+(7, 3, 3)
+(3, 4, 2)
+(4, 4, 1)
+(6, 4, 3)
+(9, 4, 1)
+(2, 5, 2)
+(8, 5, 3)
+Coada 0: (10, 2, 1); 
+Coada 1: 
+
+Timp 3
+Clienti in asteptare: 
+(3, 4, 2)
+(4, 4, 1)
+(6, 4, 3)
+(9, 4, 1)
+(2, 5, 2)
+(8, 5, 3)
+Coada 0: 
+Coada 1: (7, 3, 3); 
+
+Timp 4
+Clienti in asteptare: 
+(2, 5, 2)
+(8, 5, 3)
+Coada 0: (3, 4, 2); (4, 4, 1); (9, 4, 1); 
+Coada 1: (7, 3, 2); (6, 4, 3); 
+
+Timp 5
+Clienti in asteptare: 
+Coada 0: (3, 4, 1); (4, 4, 1); (9, 4, 1); (2, 5, 2); 
+Coada 1: (7, 3, 1); (6, 4, 3); (8, 5, 3); 
+
+Timp 6
+Clienti in asteptare: 
+Coada 0: (4, 4, 1); (9, 4, 1); (2, 5, 2); 
+Coada 1: (6, 4, 3); (8, 5, 3); 
+
+Timp 7
+Clienti in asteptare: 
+Coada 0: (9, 4, 1); (2, 5, 2); 
+Coada 1: (6, 4, 2); (8, 5, 3); 
+
+Timp 8
+Clienti in asteptare: 
+Coada 0: (2, 5, 2); 
+Coada 1: (6, 4, 1); (8, 5, 3); 
+
+Timp 9
+Clienti in asteptare: 
+Coada 0: (2, 5, 1); 
+Coada 1: (8, 5, 3); 
+
+Timp 10
+Clienti in asteptare: 
+Coada 0: 
+Coada 1: (8, 5, 2); 
+
+Timp mediu de asteptare: 3.2
+Timp mediu de servire: 1.8
+Ora de varf: 5
