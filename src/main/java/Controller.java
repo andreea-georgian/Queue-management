@@ -1,9 +1,11 @@
 import BusinessLogic.InvalidInputMessage;
+import BusinessLogic.SelectionPolicy;
 import BusinessLogic.SimulationManager;
 import View.View;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 public class Controller {
     View theView;
@@ -17,6 +19,7 @@ public class Controller {
     class addStartListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             int numberOfClients = -1, numberOfServers = -1, timeLimit = -1, minArrivalTime = -1, maxArrivalTime = -1, minProcessingTime = -1, maxProcessingTime = -1;
+            SelectionPolicy sp;
             try {
                 numberOfClients = Integer.parseInt(theView.nrClientiTF.getText());
             } catch (NumberFormatException nfe) {
@@ -52,8 +55,17 @@ public class Controller {
             } catch (NumberFormatException nfe) {
                 InvalidInputMessage invalidInputMessage = new InvalidInputMessage("Timp servire(Max) are o valoare gresita!");
             }
+            String s = theView.strategie.getSelectedItem().toString();
+            if (s.equals("Cel mai scurt timp"))
+                sp = SelectionPolicy.SHORTEST_TIME;
+            else
+                sp = SelectionPolicy.SHORTEST_QUEUE;
             if (numberOfClients != -1 && numberOfServers != -1 && timeLimit != -1 && minArrivalTime != -1 && maxArrivalTime != -1 && minProcessingTime != -1 && maxProcessingTime != -1) {
-                simulationManager = new SimulationManager(timeLimit, maxProcessingTime, minProcessingTime, maxArrivalTime, minArrivalTime, numberOfServers, numberOfClients, theView);
+                try {
+                    simulationManager = new SimulationManager(timeLimit, maxProcessingTime, minProcessingTime, maxArrivalTime, minArrivalTime, numberOfServers, numberOfClients, sp, theView);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
                 Thread t = new Thread(simulationManager);
                 t.start();
             }

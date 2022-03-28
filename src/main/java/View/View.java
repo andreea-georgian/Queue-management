@@ -29,6 +29,7 @@ public class View {
     JButton start = new JButton("Start");
     public JTextArea cozi = new JTextArea();
     public JTextArea asteptare = new JTextArea();
+    public JComboBox strategie = new JComboBox();
 
     public View() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -50,6 +51,9 @@ public class View {
         panel11.add(timpServireMaxLabel);
         panel11.add(start);
 
+        strategie.addItem("Cel mai scurt timp");
+        strategie.addItem("Cea mai scurta coada");
+
         panel12.add(Box.createRigidArea(new Dimension(0, 5)));
         panel12.add(nrClientiTF);
         panel12.add(Box.createRigidArea(new Dimension(0, 5)));
@@ -64,7 +68,9 @@ public class View {
         panel12.add(timpServireMinTF);
         panel12.add(Box.createRigidArea(new Dimension(0, 5)));
         panel12.add(timpServireMaxTF);
-        panel12.add(Box.createRigidArea(new Dimension(0, 45)));
+        panel12.add(Box.createRigidArea(new Dimension(0, 5)));
+        panel12.add(strategie);
+        panel12.add(Box.createRigidArea(new Dimension(0, 15)));
 
         cozi.setBackground(new Color(166, 238, 238, 224));
         asteptare.setBackground(new Color(234, 255, 255, 224));

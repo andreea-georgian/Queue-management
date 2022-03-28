@@ -8,7 +8,6 @@ import java.util.List;
 
 public class Scheduler {
     private List<Server> servers;
-    //private int nrServers, maxTasksPerServer;
     private Strategy strategy;
 
     public Scheduler(int nrServers, int maxTasksPerServer) {
@@ -17,6 +16,7 @@ public class Scheduler {
         for (int i = 0; i < nrServers; i++) {
             server = new Server(maxTasksPerServer);
             Thread t = new Thread(server);
+            t.start();
             servers.add(server);
         }
     }
@@ -36,14 +36,19 @@ public class Scheduler {
         return servers;
     }
 
-    public void deleteTasks() {
-        for (int i = 0; i < servers.size(); i++) {
-            if (!servers.get(i).getTasks().isEmpty()){
-                if (servers.get(i).getTasks().peek().getServiceTime() == 1)
-                    servers.get(i).getTasks().remove();
-                else
-                    servers.get(i).getTasks().peek().setServiceTime(servers.get(i).getTasks().peek().getServiceTime() - 1);
+    public void calculateWaitingTime() {
+        for (Server s : servers) {
+            s.setWaitingTime(0);
+            for (Task t : s.getTasks()) {
+                s.setWaitingTime(s.getWaitingTime() + t.getServiceTime());
             }
+        }
+    }
+
+    public void decrementServiceTime() {
+        for (Server s : servers) {
+            if (!s.getTasks().isEmpty())
+                s.getTasks().peek().setServiceTime(s.getTasks().peek().getServiceTime() - 1);
         }
     }
 }
